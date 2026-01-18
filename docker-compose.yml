@@ -1,0 +1,54 @@
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    container_name: laravel-app-login
+    volumes:
+      - ./src:/var/www/html:rw
+    ports:
+      - "5400:5400" 
+      - "5500:5500" # vite
+
+    depends_on:
+      - dbmysql
+    networks:
+      - netlaravel_login
+
+  dbmysql:
+    image: mysql:8
+    container_name: laravel-db-login
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: pswdblaravel
+      MYSQL_DATABASE: laravel
+      MYSQL_USER: laravel
+      MYSQL_PASSWORD: pswdb
+    ports:
+      - "3309:3306" 
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+    networks:
+      - netlaravel_login 
+
+  nginx:
+    image: nginx:stable
+    container_name: laravel-nginx_login
+    ports:
+      - "3200:80"
+    volumes:
+      - ./src:/var/www/html
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - app
+    networks:
+      - netlaravel_login 
+
+networks:
+  netlaravel_login:
+    driver: bridge
+
+volumes:
+  mysql_data:

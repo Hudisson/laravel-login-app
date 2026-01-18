@@ -1,0 +1,81 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+@layer components {
+
+
+    /*Layout da página*/
+    .content{
+        @apply flex justify-center mt-14 px-2 py-6 max-w-6xl mx-auto;
+    }
+
+    /* btn azul*/
+    .btn-primary{
+        @apply bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors cursor-pointer;
+    }
+
+    /* btn azul claro*/
+    .btn-info{
+        @apply bg-cyan-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors cursor-pointer;
+    }
+
+     /* btn verde*/
+    .btn-success{
+        @apply bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 transition-colors cursor-pointer;
+    }
+
+    /* btn laranja*/
+    .btn-warning{
+        @apply bg-amber-500 text-white px-4 py-2 rounded-md hover:bg-amber-600 transition-colors cursor-pointer;
+    }
+
+    /* btn vermelho*/
+    .btn-danger{
+        @apply bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition-colors cursor-pointer;
+    }
+
+    /*Alert de sucesso*/
+    .alert-success{
+        @apply flex justify-between items-center p-4 mb-4 text-sm text-green-800 rounded-lg dark:bg-green-100 font-bold relative;
+    }
+
+    /*Alert de erro*/
+    .alert-error{
+        @apply flex justify-between p-4 mb-4 text-sm text-red-800 rounded-lg dark:bg-red-100 font-bold relative;
+    }
+
+    /*botão do alert*/
+    .btn-close-alerts{
+        @apply absolute top-1 right-5
+           text-gray-500 cursor-pointer
+           hover:text-black
+           rounded p-2 text-lg;
+    } 
+
+    /*Fomulário*/
+    .form-div{
+        @apply mt-6 bg-white shadow-md w-2xl;
+    }
+    .form-container{
+        @apply mt-6 bg-white shadow-md rounded-lg p-6;
+    }
+
+    .form-label{
+        @apply block text-sm font-semibold;
+    }
+
+    .form-input{
+        @apply border p-2 w-full mt-1 rounded-md border-blue-100 shadow-sm focus:border-blue-300;
+    }
+
+
+}
