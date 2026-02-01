@@ -1,0 +1,9 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Se NÃO estiver acessando /public
+    RewriteCond %{REQUEST_URI} !^/public/
+
+    # Redireciona tudo para /public
+    RewriteRule ^(.*)$ http://localhost:8888/public/$1 [R=302,L]
+</IfModule>

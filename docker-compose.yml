@@ -1,0 +1,30 @@
+
+services:
+  app:
+    build: .
+    container_name: apache_laravel
+    volumes:
+      - ./src:/var/www/html
+    ports:
+      - "8888:80"
+      - "5555:5555" # vite
+    depends_on:
+      - mysql_db
+    networks:
+      - netlaravel_apache
+
+  mysql_db:
+    image: mysql:8.0
+    container_name: apache_db_laravel
+    restart: always
+    environment:
+      MYSQL_DATABASE: laravel
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3301:3306"
+    networks:
+      - netlaravel_apache
+
+networks:
+  netlaravel_apache:
+    driver: bridge
