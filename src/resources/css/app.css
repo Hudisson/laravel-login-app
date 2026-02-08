@@ -10,7 +10,7 @@
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -19,9 +19,10 @@
 
 /* Desktop maior que 992px */
 @media (min-width: 992px) {
+
     .form-login {
-       max-width: 600px;
+        max-width: 30%;
+        margin-top: 5%;
     }
+
 }
-
-
