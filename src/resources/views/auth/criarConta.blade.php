@@ -8,7 +8,7 @@
     {{-- CONTEÚDO PRINCIPAL --}}
     <main class="flex-grow-1 d-flex justify-content-center align-items-start pt-4 pb-4">
 
-        <form action="{{ route('auth.store') }}" method="POST" class="w-100 bg-white p-4 rounded form-login">
+        <form action="{{ route('auth.store') }}" method="POST" class="w-100 bg-light p-4 rounded form-login">
 
             {{-- Carregas o arquivo de alerts aqui --}}
             <x-alerts/>
