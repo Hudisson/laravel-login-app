@@ -20,6 +20,7 @@
 /* Desktop maior que 992px */
 @media (min-width: 992px) {
 
+    /*Centraliza o formulário*/
     .form-login {
         max-width: 30%;
         margin-top: 5%;
