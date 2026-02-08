@@ -7,10 +7,6 @@
     {{-- CONTEÚDO PRINCIPAL --}}
     <main class="flex-grow-1 d-flex justify-content-center align-items-start pt-4 pb-4">
 
-        <style>
-
-        </style>
-
         <form class="w-100 bg-light p-4 rounded form-login">
 
             {{-- Carregas o arquivo de alerts aqui --}}
