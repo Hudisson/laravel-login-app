@@ -2,7 +2,7 @@
     <div class="container justify-content-center">
 
         {{-- Logo à esquerda --}}
-        <a class="navbar-brand logo me-auto" href="{{ route('auth.login') }}">EasyLogin</a>
+        <a class="navbar-brand logo me-auto" href="{{ route('login') }}">EasyLogin</a>
 
         {{-- Botão do colapso (mobile) --}}
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
