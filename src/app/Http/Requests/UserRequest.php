@@ -28,7 +28,7 @@ class UserRequest extends FormRequest
         ];
     }
 
-     public function messages()
+    public function messages()
     {
        return[
             'name.required'     => 'O campo nome é de preenchimento obrigatório.',

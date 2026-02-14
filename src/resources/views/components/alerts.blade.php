@@ -20,3 +20,17 @@
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 @endif
+
+<style>
+    .alert-laranja{
+        background-color: #d37204;
+        color: white;
+    }
+</style>
+
+@if (session('logout'))
+    <div class="w-100 alert alert-laranja alert-dismissible fade show" role="alert">
+        {{ session('logout') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+@endif

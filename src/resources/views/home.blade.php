@@ -12,6 +12,8 @@
 
                     <article class="bg-light p-4 rounded shadow-sm">
 
+                        <x-alerts />
+
                         <nav class="navbar  navbar-light bg-light navbar-expand-lg mb-4">
                             <div class="container">
 
@@ -32,7 +34,7 @@
                                     <ul class="navbar-nav ms-auto nav nav-pills gap-2">
 
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link active">Perfil</a>
+                                            <a href="{{ route('user.index') }}" class="nav-link active">Perfil</a>
                                         </li>
 
                                         <li class="nav-item">
@@ -40,7 +42,7 @@
                                         </li>
 
                                         <li class="nav-item">
-                                            <form method="POST" action="">
+                                            <form method="GET" action="{{ route('logout') }}">
                                                 @csrf
                                                 <button type="submit" class="nav-link btn btn-link text-danger p-2">
                                                     Sair
@@ -67,20 +69,23 @@
 
                             <div class="card-body">
                                 <p class="mb-2">
-                                    {{-- <strong>Nome:</strong> {{ auth()->user()->name }} --}}
-                                    <strong>Nome:</strong> Fulano
+                                    <strong>Nome:</strong> {{ auth()->user()->name }}
+                                </p>
+
+                                <p class="mb-2">
+                                    <strong>E-mail:</strong> {{ auth()->user()->email }}
                                 </p>
 
                                 <p class="mb-2">
                                     <strong>Data de cadastro:</strong>
-                                    {{-- {{ auth()->user()->created_at->format('d/m/Y') }} --}}
-                                    27/01/2023
+                                    {{ auth()->user()->created_at->format('d/m/Y') }}
+
                                 </p>
 
                                 <p class="mb-0">
                                     <strong>Última atualização:</strong>
-                                    {{-- {{ auth()->user()->updated_at->format('d/m/Y H:i') }} --}}
-                                    27/01/2023
+                                    {{ auth()->user()->updated_at->format('d/m/Y H:i') }}
+
                                 </p>
                             </div>
                         </div>
