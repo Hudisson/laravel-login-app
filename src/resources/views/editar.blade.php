@@ -10,7 +10,7 @@
 
                 <div class="col-lg-10">
 
-                    <article class="bg-light p-4 rounded shadow-sm">
+                    <article class="bg-light p-3 rounded shadow-sm">
 
                         <x-alerts />
 
@@ -38,7 +38,7 @@
                                         </li>
 
                                         <li class="nav-item">
-                                            <a href="{{ route('user.edit')}}" class="nav-link">Editar</a>
+                                            <a href="{{ route('user.edit') }}" class="nav-link">Editar</a>
                                         </li>
 
                                         <li class="nav-item">
@@ -55,44 +55,41 @@
                             </div>
                         </nav>
 
-
-                        <p class="text-muted mb-4">
-                            Área restrita
-                        </p>
-
                         <hr>
 
-                        <div class="card mb-4 shadow-sm">
-                            <div class="card-header bg-light">
-                                <strong>Perfil</strong>
+                        <style>
+                            .form {
+                                margin-left: 255px;
+                            }
+                            .title-edit-form{
+                                text-align: center
+                            }
+                        </style>
+
+                        <h5 class="title-edit-form">Formulário de edição</h5>
+
+                        {{-- formulário de edição --}}
+                        <form class="form w-50 rounded" action="" method="POST">
+
+                            @csrf
+                            @method('POST')
+
+                            <div class="mb-3">
+                                <label class="form-label">Nome</label>
+                                <input type="text" name="name" value="{{ old('name') }}"
+                                    class="form-control @error('name') border-red-500 @enderror">
                             </div>
 
-                            <div class="card-body">
-                                <p class="mb-2">
-                                    <strong>Nome:</strong> {{ auth()->user()->name }}
-                                </p>
-
-                                <p class="mb-2">
-                                    <strong>E-mail:</strong> {{ auth()->user()->email }}
-                                </p>
-
-                                <p class="mb-2">
-                                    <strong>Data de cadastro:</strong>
-                                    {{ auth()->user()->created_at->format('d/m/Y') }}
-
-                                </p>
-
-                                <p class="mb-0">
-                                    <strong>Última atualização:</strong>
-                                    {{ auth()->user()->updated_at->format('d/m/Y H:i') }}
-
-                                </p>
+                            <div class="mb-3">
+                                <label class="form-label">E-mail</label>
+                                <input type="email" name="email"
+                                    class="form-control @error('email') border-red-500 @enderror">
                             </div>
-                        </div>
 
-                        <p>
-                            Bem-vindo à área restrita do sistema.
-                        </p>
+                            <div class="d-grid mb-2 mt-4">
+                                <button class="btn btn-primary">Entrar</button>
+                            </div>
+                        </form>
 
                     </article>
 
