@@ -64,7 +64,10 @@ class authLogin extends Controller
             }
 
             // Redirecionar o usuário para a tela home
-            return redirect()->route('user.index')->with('success', 'Bem-vindo(a)!');
+
+            $user = Auth::user();
+
+            return redirect()->route('user.index')->with('success', "Bem-vindo(a)! {$user->name}");
 
         }catch(\Exception $e){
             // Redirecionar o usuário, enviar mensagem de erro

@@ -23,6 +23,9 @@ Route::group(['middleware' => 'auth'], function(){
     // Rota para a página home
     Route::get('/home',[UserController::class, 'index'])->name('user.index');
 
+    // Rota para a página de edição de usuários
+    Route::get('/edit-user', [UserController::class, 'edit'])->name('user.edit');
+
     // Logout
     Route::get('/logout', [authLogin::class, 'logout'])->name('logout');
 });
