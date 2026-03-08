@@ -69,21 +69,21 @@
                         <h5 class="title-edit-form">Formulário de edição</h5>
 
                         {{-- formulário de edição --}}
-                        <form class="form w-50 rounded" action="" method="POST">
+                        <form class="form w-50 rounded" action="{{ route('user.update', [auth()->user()->id]) }}" method="POST">
 
                             @csrf
-                            @method('POST')
+                            @method('PUT')
 
                             <div class="mb-3">
                                 <label class="form-label">Nome</label>
-                                <input type="text" name="name" value="{{ old('name') }}"
+                                <input type="text" name="name" value="{{ old('name', auth()->user()->name ) }}"
                                     class="form-control @error('name') border-red-500 @enderror">
                             </div>
 
                             <div class="mb-3">
                                 <label class="form-label">E-mail</label>
-                                <input type="email" name="email"
-                                    class="form-control @error('email') border-red-500 @enderror">
+                                <input type="email" name="email" value="{{ old('email', auth()->user()->email ) }} "
+                                    class="form-control @error('email') border-red-500 @enderror" readonly>
                             </div>
 
                             <div class="d-grid mb-2 mt-4">

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\auth\authLogin;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UpdateUserController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -25,6 +26,9 @@ Route::group(['middleware' => 'auth'], function(){
 
     // Rota para a página de edição de usuários
     Route::get('/edit-user', [UserController::class, 'edit'])->name('user.edit');
+
+    // Rota para salva o dados do formulário de edição de usuário
+    Route::put('/update-user/{user}', [UpdateUserController::class, 'update'])->name('user.update');
 
     // Logout
     Route::get('/logout', [authLogin::class, 'logout'])->name('logout');
